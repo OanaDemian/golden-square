@@ -11,8 +11,13 @@ RSpec.describe "make_snippet" do
     expect(result).to eq(6)
   end
 
-  it "returns the text if the paragraph is 5 words or shorter" do
+  it "returns entire text if the paragraph is 5 words or shorter" do
     result =  make_snippet("I like coding in Ruby.")
     expect(result).to eq("I like coding in Ruby.")
+  end
+
+  it "returns first 5 words followed by ... if the paragraph is longer than 5 words" do
+    result =  make_snippet("I like coding in Ruby and Javascript.")
+    expect(result).to eq("I like coding in Ruby...")
   end
 end
