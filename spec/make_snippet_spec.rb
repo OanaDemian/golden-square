@@ -11,6 +11,11 @@ RSpec.describe "make_snippet" do
     expect(result.split(" ").length).to eq(3)
   end
 
+  it "returns 5 if the paragraph contains more than 5 words" do
+    result =  make_snippet("test driven development is one of the best practices in software development")
+    expect(result.split(" ").length).to eq(5)
+  end
+
   it "returns entire text if the paragraph is 5 words or shorter" do
     result =  make_snippet("I like coding in Ruby.")
     expect(result).to eq("I like coding in Ruby.")
